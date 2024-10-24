@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class EcoHomeScreen extends StatefulWidget {
   const EcoHomeScreen({super.key});
@@ -10,6 +11,8 @@ class EcoHomeScreen extends StatefulWidget {
 class _EcoHomeScreenState extends State<EcoHomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(),
+    );
   }
 }
