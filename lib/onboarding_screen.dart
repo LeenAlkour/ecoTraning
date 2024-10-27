@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_common/get_reset.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:trainingprogect/custom_button.dart';
 import 'package:trainingprogect/eco_home_screen.dart';
 
 class OnboardingScreen extends StatefulWidget {
@@ -27,17 +31,18 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               },
               children: const [
                 OnboardingPage(
-                  image: 'assets/image1.png',
+
+                  image: 'assets/images/1.png',
                   title: 'Welcome to Our Store',
                   description: 'Find the best products in one place.',
                 ),
                 OnboardingPage(
-                  image: 'assets/image2.png',
+                  image: 'assets/images/2.png',
                   title: 'Fast Delivery',
                   description: 'Get your products delivered quickly.',
                 ),
                 OnboardingPage(
-                  image: 'assets/image3.png',
+                  image: 'assets/images/3.png',
                   title: 'Easy Payment',
                   description: 'Multiple payment methods available.',
                 ),
@@ -50,13 +55,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           ),
           Padding(
             padding: const EdgeInsets.all(16.0),
-            child: ElevatedButton(
+            child:CustomButton(
+              text: _currentPage == 2 ? 'Get Started' : 'Next',
               onPressed: () {
                 if (_currentPage == 2) {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(builder: (context) =>const EcoHomeScreen()),
-                  );
+                  Get.offNamed('/login');
                 } else {
                   _pageController.nextPage(
                     duration: const Duration(milliseconds: 300),
@@ -64,8 +67,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   );
                 }
               },
-              child: Text(_currentPage == 2 ? 'Get Started' : 'Next'),
+              color: Colors.yellow.shade700,
             ),
+
           ),
         ],
       ),
