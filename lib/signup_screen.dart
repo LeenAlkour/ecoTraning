@@ -31,7 +31,7 @@ class SignUpScreen extends StatelessWidget {
                   SizedBox(height: 16),
                   CustomTextField(
                     hintText: "Name",
-                    isPassword: true,
+                    isPassword: false,
                     onChanged: (value) => authController.name.value = value,
                   ),
                   SizedBox(height: 20),
@@ -62,7 +62,6 @@ class SignUpScreen extends StatelessWidget {
                     onPressed: authController.signUp,
                     color: Colors.yellow.shade700,
                   ),SizedBox(height: 16),
-                  // رابط الانتقال إلى شاشة التسجيل
                   TextButton(
                     onPressed: () { Get.offNamed('/login');
                     },

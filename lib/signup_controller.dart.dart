@@ -2,6 +2,7 @@
 
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
+import 'package:get_storage/get_storage.dart';
 
 class SignUpController extends GetxController {
   var email = ''.obs;
@@ -18,6 +19,7 @@ class SignUpController extends GetxController {
       Get.snackbar("Success", "Sign up successful!",
           snackPosition: SnackPosition.TOP);
       Get.offNamed('/home');
+      GetStorage().write('SignUp', "true");
     }
   }
 

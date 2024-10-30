@@ -1,8 +1,10 @@
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
 class LoginController extends GetxController {
   var email = ''.obs;
   var password = ''.obs;
+
 
 
   void login() {
@@ -10,6 +12,7 @@ class LoginController extends GetxController {
       Get.snackbar("Success", "Login successful!",
           snackPosition: SnackPosition.TOP);
       Get.offNamed('/home');
+      GetStorage().write('loggedIn', "true");
     }
   }
 

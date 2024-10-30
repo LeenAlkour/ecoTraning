@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_common/get_reset.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:trainingprogect/custom_button.dart';
 import 'package:trainingprogect/eco_home_screen.dart';
 
@@ -15,7 +16,7 @@ class OnboardingScreen extends StatefulWidget {
 class _OnboardingScreenState extends State<OnboardingScreen> {
   final PageController _pageController = PageController();
   int _currentPage = 0;
-
+  final box = GetStorage();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,6 +60,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               text: _currentPage == 2 ? 'Get Started' : 'Next',
               onPressed: () {
                 if (_currentPage == 2) {
+                  box.write('onboardingComplete', "true");
                   Get.offNamed('/login');
                 } else {
                   _pageController.nextPage(

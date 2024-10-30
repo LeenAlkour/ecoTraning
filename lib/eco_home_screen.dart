@@ -1,67 +1,33 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:trainingprogect/home_content.dart';
+import 'package:trainingprogect/home_controller.dart';
 import 'package:trainingprogect/navigation_bar.dart';
+import 'package:trainingprogect/profile_screen.dart';
+import 'package:trainingprogect/settings_screen.dart';
 
-class HomeScreen extends StatefulWidget {
-  @override
-  _HomeScreenState createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-  int _selectedIndex = 0;
-  final List<Widget> _screens = [HomeContent(), ProfileScreen(), SettingsScreen()];
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final HomeController homeController = Get.put(HomeController());
+
     return Scaffold(
 
-      body: _screens[_selectedIndex],
+      body: Obx(() {
+        return IndexedStack(
+          index: homeController.selectedIndex.value,
+          children: const [
+            HomeContent(),
+            ProfileScreen(),
+            SettingsScreen(),
+          ],
+        );
+      }),
       bottomNavigationBar: CustomNavigationBar(
-        currentIndex: _selectedIndex,
-        onTap: _onItemTapped,
-      ),
-    );
-  }
-}
-
-class HomeContent extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(child: Text("Welcome to Home", style: TextStyle(fontSize: 24)));
-  }
-}
-
-
-class ProfileScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text("Profile")),
-      body: Center(
-        child: Text(
-          "User Profile",
-          style: TextStyle(fontSize: 24),
-        ),
-      ),
-    );
-  }
-}
-
-class SettingsScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text("Settings")),
-      body: Center(
-        child: Text(
-          "App Settings",
-          style: TextStyle(fontSize: 24),
-        ),
+        currentIndex: homeController.selectedIndex.value,
+        onTap: homeController.onItemTapped,
       ),
     );
   }

@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:trainingprogect/login_ccontroller.dart';
-import 'package:trainingprogect/signup_controller.dart.dart';
 import 'package:trainingprogect/custom_button.dart';
 import 'package:trainingprogect/custom_text_field.dart';
-import 'package:trainingprogect/signup_screen.dart';
 
 
 class LoginScreen extends StatelessWidget {
@@ -22,8 +20,7 @@ class LoginScreen extends StatelessWidget {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  // عنوان مميز
-                  Text(
+                  const Text(
                     "Welcome Back",
                     style: TextStyle(
                       fontSize: 32,
@@ -31,28 +28,24 @@ class LoginScreen extends StatelessWidget {
                       color: Colors.black,
                     ),
                   ),
-                  SizedBox(height: 16),
-                  // حقل البريد الإلكتروني
+                  const SizedBox(height: 16),
                   CustomTextField(
                     hintText: "Email",
                     onChanged: (value) => authController.email.value = value,
                   ),
-                  SizedBox(height: 16),
-                  // حقل كلمة المرور
+                  const SizedBox(height: 16),
                   CustomTextField(
                     hintText: "Password",
                     isPassword: true,
                     onChanged: (value) => authController.password.value = value,
                   ),
-                  SizedBox(height: 20),
-                  // زر تسجيل الدخول
+                  const SizedBox(height: 20),
                   CustomButton(
                     text: "Log In",
                     onPressed: authController.login,
                     color: Colors.yellow.shade700,
                   ),
-                  SizedBox(height: 16),
-                  // رابط الانتقال إلى شاشة التسجيل
+                  const SizedBox(height: 16),
                   TextButton(
                     onPressed: () { Get.offNamed('/signup');
                       },
