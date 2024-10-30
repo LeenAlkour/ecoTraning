@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:trainingprogect/onboarding_screen.dart';
-import 'package:trainingprogect/signup_controller.dart.dart';
-import 'package:trainingprogect/eco_home_screen.dart';
-import 'package:trainingprogect/login_screen.dart';
-import 'package:trainingprogect/splash_screen.dart';
-import 'package:trainingprogect/signup_screen.dart';
+import 'package:trainingprogect/screens/eco_home_screen.dart';
+import 'package:trainingprogect/screens/login_screen.dart';
+import 'package:trainingprogect/screens/onboarding_screen.dart';
+import 'package:trainingprogect/screens/signup_screen.dart';
+import 'package:trainingprogect/screens/splash_screen.dart';
+
 
 void main() async {
   await GetStorage.init();
